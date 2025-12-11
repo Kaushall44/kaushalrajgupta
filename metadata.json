@@ -1,5 +1,14 @@
 {
-  "name": "Kaushal Raj Gupta - VS Code Portfolio",
-  "description": "A developer portfolio styled like Visual Studio Code with GitHub Dark theme integration.",
-  "requestFramePermissions": []
+  "name": "Kaushal Raj Gupta | CS Student & Software Engineer",
+  "description": "Portfolio of Kaushal Raj Gupta, a Computer Science student and Full Stack Developer & Cybersecuiry Expert specializing in Next.js, React, Networking, and modern web engineering. Explore my projects and resume.",
+  "requestFramePermissions": [],
+  "keywords": [
+    "Kaushal Raj Gupta",
+    "Computer Science Student",
+    "Software Engineer",
+    "Next.js Developer",
+    "React Portfolio",
+    "Frontend Developer",
+    "Web Development"
+  ]
 }
