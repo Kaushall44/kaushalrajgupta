@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kaushal Raj Gupta - A developer portfolio styled like Visual Studio Code with GitHub Dark theme integration." />
+    <meta name="keywords" content="Kaushal Raj Gupta, Kaushal Raj Gupta Portfolio, Software Engineer Portfolio, Cybersecurity, Cybersecurity Expert, Cybersecurity Analyst, Cybersecurity Engineer, Stack Developer, Web Developer, React Developer, Next.js Developer, Frontend Engineer, Creative Technologist, React.js, Next.js, TypeScript, JavaScript, Tailwind CSS, Node.js, Git, GitHub, Visual Studio Code Theme, Responsive Web Design, UI/UX Engineering, Web Performance Optimization, SEO Friendly Web Development, Interactive Portfolio, Developer Portfolio, Coding Themed Website, VS Code Portfolio Theme, Dark Mode UI, Clean Code, Modern Web Architecture, Siksha 'O' Anusandhan, ITER, SOA, Kaushal Raj Gupta LinedIN" />
+    <title>Kaushal Raj Gupta | Cybersecurity Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Dark Theme (Default) - RGB Channels */
+        --bg: 30 30 30;           /* #1e1e1e */
+        --sidebar: 37 37 38;      /* #252526 */
+        --activity: 51 51 51;     /* #333333 */
+        --tab-inactive: 45 45 45; /* #2d2d2d */
+        --text: 212 212 212;      /* #d4d4d4 */
+        --blue: 0 122 204;        /* #007acc */
+        --orange: 206 145 120;    /* #ce9178 */
+        --yellow: 220 220 170;    /* #dcdcaa */
+        --green: 106 153 85;      /* #6a9955 */
+        --keyword: 86 156 214;    /* #569cd6 */
+        --number: 181 206 168;    /* #b5cea8 */
+        --comment: 106 153 85;    /* #6a9955 */
+        --string: 206 145 120;    /* #ce9178 */
+        --variable: 156 220 254;  /* #9cdcfe */
+        --highlight: 38 79 120;   /* #264f78 */
+        --border: 69 69 69;       /* #454545 */
+        --scroll-thumb: 66 66 66; /* #424242 */
+        --scroll-hover: 79 79 79; /* #4f4f4f */
+      }
+
+      .light-theme {
+        /* Light Theme (VS Code Light+) - RGB Channels */
+        --bg: 255 255 255;        /* #ffffff */
+        --sidebar: 243 243 243;   /* #f3f3f3 */
+        --activity: 224 224 224;  /* #e0e0e0 */
+        --tab-inactive: 236 236 236; /* #ececec */
+        --text: 51 51 51;         /* #333333 */
+        --blue: 0 122 204;        /* #007acc */
+        --orange: 163 21 21;      /* #a31515 */
+        --yellow: 121 94 38;      /* #795e26 */
+        --green: 0 128 0;         /* #008000 */
+        --keyword: 0 0 255;       /* #0000ff */
+        --number: 9 134 88;       /* #098658 */
+        --comment: 0 128 0;       /* #008000 */
+        --string: 163 21 21;      /* #a31515 */
+        --variable: 0 16 128;     /* #001080 */
+        --highlight: 225 225 225; /* #e1e1e1 */
+        --border: 229 229 229;    /* #e5e5e5 */
+        --scroll-thumb: 193 193 193; /* #c1c1c1 */
+        --scroll-hover: 168 168 168; /* #a8a8a8 */
+      }
+
+      body {
+        font-family: 'JetBrains Mono', monospace;
+        background-color: rgb(var(--bg));
+        color: rgb(var(--text));
+        overflow: hidden;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--bg));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--scroll-thumb));
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(var(--scroll-hover));
+      }
+      .line-numbers {
+        user-select: none;
+        color: #858585;
+        text-align: right;
+        padding-right: 1.5rem;
+        min-width: 3rem;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              vscode: {
+                bg: 'rgb(var(--bg) / <alpha-value>)',
+                sidebar: 'rgb(var(--sidebar) / <alpha-value>)',
+                activity: 'rgb(var(--activity) / <alpha-value>)',
+                tabInactive: 'rgb(var(--tab-inactive) / <alpha-value>)',
+                text: 'rgb(var(--text) / <alpha-value>)',
+                blue: 'rgb(var(--blue) / <alpha-value>)',
+                orange: 'rgb(var(--orange) / <alpha-value>)',
+                yellow: 'rgb(var(--yellow) / <alpha-value>)',
+                green: 'rgb(var(--green) / <alpha-value>)',
+                keyword: 'rgb(var(--keyword) / <alpha-value>)',
+                number: 'rgb(var(--number) / <alpha-value>)',
+                comment: 'rgb(var(--comment) / <alpha-value>)',
+                string: 'rgb(var(--string) / <alpha-value>)',
+                variable: 'rgb(var(--variable) / <alpha-value>)',
+                highlight: 'rgb(var(--highlight) / <alpha-value>)',
+              },
+              github: {
+                dark: '#0d1117',
+                border: '#30363d',
+                link: '#58a6ff',
+              }
+            },
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
