@@ -6,7 +6,7 @@ import { ABOUT_DATA } from '../constants';
 const Resume: React.FC = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; 
+    link.href = '/Kaushal_Raj_Gupta.pdf'; 
     link.download = 'Kaushal_Raj_Gupta_Resume.pdf';
     document.body.appendChild(link);
     // link.click(); // Commented out to prevent 404 in demo
@@ -38,8 +38,8 @@ const Resume: React.FC = () => {
             <p className="text-vscode-string text-lg">## Bachelor of Technology (2024-28)</p>
             <div className="opacity-80 mt-2 text-sm flex flex-col gap-1">
               <p>&gt; Institute of Technical Education and Research (SOA), Odisha</p>
-              <p>&gt; Phone: +91-8210348591</p>
-              <p>&gt; Email: kaushalrnc0@gmail.com</p>
+              <p>&gt; Phone: +91-1234567890</p>
+              <p>&gt; Email: kushh4@proton.me</p>
             </div>
           </div>
 

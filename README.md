@@ -3,7 +3,7 @@
   <p><strong>A Modern, Interactive VS Code-Themed Portfolio Website</strong></p>
   <br/>
   
-  [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-blue?style=for-the-badge)](https://localhost:3000)
+  [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-blue?style=for-the-badge)](https://kaushalrajgupta.vercel.app/)
   [![React](https://img.shields.io/badge/React-18.0-blue?style=flat-square&logo=react)](https://react.dev)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0-blue?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
@@ -40,8 +40,8 @@ A sleek, interactive personal portfolio website designed with a **VS Code termin
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/kaushall44/kaushal-portfolio.git
-   cd kaushal-portfolio
+   git clone https://github.com/kaushall44/kaushalrajgupta.git
+   cd kaushalrajgupta
    ```
 
 2. **Install dependencies:**
@@ -337,5 +337,5 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 <div align="center">
   <p>Made with ❤️ by <strong>Kaushal Raj Gupta</strong></p>
-  <p>© 2024 All rights reserved.</p>
+  <p>© 2025 All rights reserved.</p>
 </div>
