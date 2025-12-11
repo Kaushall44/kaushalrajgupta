@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kaushalrajgupta.vercel.app/sitemap.xml
