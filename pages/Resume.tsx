@@ -9,9 +9,8 @@ const Resume: React.FC = () => {
     link.href = '/Kaushal_Raj_Gupta.pdf'; 
     link.download = 'Kaushal_Raj_Gupta_Resume.pdf';
     document.body.appendChild(link);
-    // link.click(); // Commented out to prevent 404 in demo
+    link.click();
     document.body.removeChild(link);
-    alert("In a real environment, this would download the PDF file.");
   };
 
   return (
