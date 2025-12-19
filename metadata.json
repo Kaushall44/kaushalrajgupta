@@ -1,0 +1,37 @@
+{
+  "name": "DevFolio - SEO Optimized Portfolio",
+  "description": "A high-performance, SEO-optimized, and accessible developer portfolio featuring Semantic HTML, JSON-LD structured data, and a Bento Grid layout.",
+  "requestFramePermissions": [],
+  "blogPosts": [
+    {
+      "title": "Zero Trust Architecture: Beyond the Buzzword",
+      "description": "Why traditional perimeter-based security is failing and how identity-centric security models are shaping the future of enterprise infrastructure.",
+      "keywords": "Security, Architecture, Zero Trust, Enterprise Security, Cyber Security"
+    },
+    {
+      "title": "Securing Modern React Applications",
+      "description": "A deep dive into XSS prevention, Content Security Policies (CSP), and secure authentication patterns in Next.js and React ecosystems.",
+      "keywords": "React, AppSec, Web Security, XSS, CSP, Next.js Security"
+    },
+    {
+      "title": "The State of Supply Chain Security",
+      "description": "Analyzing recent npm malware incidents and practical strategies to audit and lock down your dependency tree to prevent upstream attacks.",
+      "keywords": "DevSecOps, Node.js, Supply Chain Attacks, NPM Security, Dependency Management"
+    },
+    {
+      "title": "Mastering React Server Components",
+      "description": "Understanding the paradigm shift in data fetching. How RSCs reduce bundle size and improve First Contentful Paint (FCP) in Next.js applications.",
+      "keywords": "React, Performance, RSC, Server Components, Next.js, Web Performance"
+    },
+    {
+      "title": "Optimizing Core Web Vitals",
+      "description": "Practical techniques to improve LCP, FID, and CLS scores. From font loading strategies to image optimization and code splitting.",
+      "keywords": "Performance, SEO, Core Web Vitals, LCP, CLS, Web Optimization"
+    },
+    {
+      "title": "Accessibility First Development",
+      "description": "Building inclusive web experiences isn't just about compliance. It's about creating better products for everyone. A guide to ARIA, focus management, and semantic HTML.",
+      "keywords": "A11y, HTML, Accessibility, WCAG, ARIA, Inclusive Design"
+    }
+  ]
+}
