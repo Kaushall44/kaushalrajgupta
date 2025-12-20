@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="public/banner.png" alt="Kaushal Portfolio Banner" width="100%" />
 
   # Kaushal Portfolio
   
