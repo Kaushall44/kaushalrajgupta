@@ -29,19 +29,19 @@
 Integrated with **Google Gemini AI**, this portfolio offers dynamic, intelligent interactions, setting a new standard for developer portfolios.
 
 ## 📂 Project Structure
-
 ```bash
 kaushalrajgupta/
+├── components/            # React components
+│   ├── ui/                # Reusable UI components (Modals, Cards)
+│   └── UrlShortener.tsx   # URL Shortener component
 ├── data/                  # Application data (projects, skills, blog posts)
-│   └── constants.tsx     
+│   └── constants.tsx
+├── lib/                   # Utility functions
+│   └── firebase.ts        # Firebase configuration
 ├── public/                # Static assets (images, resume, etc.)
-│   ├── resume.pdf
-│   └── ...
-├── App.tsx                # Main Application Component
+├── App.tsx                # Main Application Component & Routing Logic
 ├── index.html             # Entry HTML file
 ├── index.tsx              # React Entry point
-├── lib/                 # Utility functions and helper classes
-├── package.json           # Project dependencies and scripts
 ├── tailwind.config.js     # Tailwind CSS configuration
 ├── tsconfig.json          # TypeScript configuration
 └── vite.config.ts         # Vite bundler configuration
@@ -50,6 +50,10 @@ kaushalrajgupta/
 ## ✨ Key Features
 
 - **🎨 Modern Data-Driven UI**: Specific design system built with React and Tailwind CSS for a sleek, responsive interface.
+- **⚡ Advanced Routing**:
+    - **Hash Navigation**: Smooth scrolling to `#home`, `#work`, `#about`, `#contact`.
+    - **Dedicated Endpoints**: Direct access to `/tools`, `/projects`, and `/blog`.
+    - **History Management**: Seamless browser back/forward navigation between sections and views.
 - **🌓 Dark/Light Mode**: Seamless theming with smooth transitions, respecting user preferences.
 - **⚡ Lightning Fast**: Powered by Vite for instant HMR and optimized production builds.
 - **🤖 AI Integration**: Utilizes Google GenAI SDK for smart, interactive content and features.
