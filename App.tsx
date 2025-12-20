@@ -336,10 +336,10 @@ const ProjectModal = ({ project, onClose }: { project: typeof PROJECTS[0] | null
 
           <div className="mt-8 flex flex-col gap-6">
             <div className="flex gap-4">
-              <button onClick={() => window.open("https://example.com", "_blank")} className="flex-1 py-3 bg-neutral-900 dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+              <button onClick={() => window.open(project.link, "_blank")} className="flex-1 py-3 bg-neutral-900 dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                 View Live Site <ExternalLink className="w-4 h-4" />
               </button>
-              <button onClick={() => window.open("https://github.com/kaushalrnc0?tab=repositories", "_blank")} className="flex-1 py-3 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2">
+              <button onClick={() => window.open(project.repoUrl, "_blank")} className="flex-1 py-3 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2">
                 Source Code <Github className="w-4 h-4" />
               </button>
             </div>
@@ -478,7 +478,7 @@ const BlogModal = ({ post, onClose }: { post: typeof BLOG_POSTS[0] | null, onClo
                     <Bot className="w-6 h-6 text-neutral-500" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-semibold text-neutral-900 dark:text-white">Alex Developer</span>
+                    <span className="text-sm font-semibold text-neutral-900 dark:text-white">Kaushal Raj Gupta</span>
                     <span className="text-xs text-neutral-500">Senior Frontend Engineer</span>
                   </div>
                 </div>
@@ -535,13 +535,13 @@ const ChatWidget = () => {
     if (!chatSessionRef.current) {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const context = `
-        You are an AI assistant for Alex Developer's portfolio website.
-        Your goal is to answer visitor questions professionally and concisely about Alex.
+        You are an AI assistant for Kaushal Raj Gupta's portfolio website.
+        Your goal is to answer visitor questions professionally and concisely about Kaushal.
         
-        Here is Alex's Resume Context:
+        Here is Kaushal's Resume Context:
         
         SUMMARY:
-        Full Stack Engineer & React Specialist based in San Francisco. Building scalable, accessible web apps.
+        B.Tech student at ITER (SOA), Odisha. CGPA 8.9. Passionate about Web Development and Cyber Security.
         
         SKILLS:
         ${SKILLS_ROW_1.join(', ')}, ${SKILLS_ROW_2.join(', ')}
@@ -551,14 +551,6 @@ const ChatWidget = () => {
         
         PROJECTS:
         ${JSON.stringify(PROJECTS)}
-        
-        You are an AI assistant for Kaushal Raj Gupta's portfolio website.
-        Your goal is to answer visitor questions professionally and concisely about Kaushal.
-        
-        Here is Kaushal's Resume Context:
-        
-        SUMMARY:
-        B.Tech student at ITER (SOA), Odisha. CGPA 8.9. Passionate about Web Development and Cyber Security.
         
         TONE:
         Professional, enthusiastic, slightly technical but accessible. Keep responses under 3-4 sentences unless asked for detail.
@@ -700,10 +692,10 @@ const personSchema = {
   "@type": "Person",
   "name": "Kaushal Raj Gupta",
   "jobTitle": "Bachelor of Technology Student",
-  "url": "https://kaushal-portfolio.com",
+  "url": "https://kaushalrajgupta.vercel.app",
   "sameAs": [
-    "https://github.com/kaushalrnc0",
-    "https://linkedin.com/in/kaushal-raj-gupta"
+    "https://github.com/Kaushall44",
+    "https://linkedin.com/in/kaushalrajgupta"
   ],
   "knowsAbout": ["C++", "Python", "React.js", "Node.js", "Cyber Security", "Web Design"],
   "worksFor": {
@@ -775,7 +767,7 @@ export default function App() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("kaushalrnc0@gmail.com");
+    navigator.clipboard.writeText("kushh4@proton.me");
     showNotification("Email copied to clipboard!");
   };
 
@@ -964,7 +956,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">Open to Work</h3>
-                  <p className="text-neutral-500 text-sm mt-1">Accepting new projects</p>
+                  <p className="text-neutral-500 text-sm mt-1">Available for Hire</p>
                 </div>
               </Card>
 
@@ -972,22 +964,22 @@ export default function App() {
                 <SocialButton
                   icon={<Github className="w-5 h-5" />}
                   label="GitHub"
-                  subLabel="@kaushalrnc0"
-                  href="https://github.com/kaushalrnc0?tab=repositories"
+                  subLabel="@Kaushall44"
+                  href="https://github.com/Kaushall44?tab=repositories"
                   ariaLabel="GitHub Profile"
                 />
                 <SocialButton
                   icon={<Twitter className="w-5 h-5" />}
                   label="Twitter/X"
-                  subLabel="@alex_builds"
-                  href="https://twitter.com"
+                  subLabel="@Kaushall44"
+                  href="https://twitter.com/Kaushall44"
                   ariaLabel="Twitter Profile"
                 />
                 <SocialButton
                   icon={<Linkedin className="w-5 h-5" />}
                   label="LinkedIn"
-                  subLabel="/in/kaushal-raj-gupta"
-                  href="https://www.linkedin.com/in/kaushal-raj-gupta-b1799a256/"
+                  subLabel="/in/kaushalrajgupta"
+                  href="https://www.linkedin.com/in/kaushalrajgupta/"
                   ariaLabel="LinkedIn Profile"
                 />
                 <div className="p-4 bg-gray-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors">
@@ -1418,7 +1410,7 @@ export default function App() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="mailto:hello@developer.com" className="px-8 py-4 bg-neutral-900 dark:bg-white text-white dark:text-black text-lg font-bold rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors">
+              <a href="mailto:kushh4@proton.me" className="px-8 py-4 bg-neutral-900 dark:bg-white text-white dark:text-black text-lg font-bold rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors">
                 Send an email
               </a>
               <button onClick={copyEmail} className="px-8 py-4 bg-transparent border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white text-lg font-medium rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors">
@@ -1428,11 +1420,11 @@ export default function App() {
           </div>
 
           <div className="mt-20 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-neutral-500 pb-8">
-            <p>&copy; {new Date().getFullYear()} Alex Developer. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Kaushal Raj Gupta. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="https://twitter.com" rel="noopener noreferrer me" className="hover:text-black dark:hover:text-white transition-colors">Twitter</a>
-              <a href="https://linkedin.com" rel="noopener noreferrer me" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
-              <a href="https://github.com" rel="noopener noreferrer me" className="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
+              <a href="https://twitter.com/Kaushall44" rel="noopener noreferrer me" className="hover:text-black dark:hover:text-white transition-colors">Twitter</a>
+              <a href="https://www.linkedin.com/in/kaushalrajgupta/" rel="noopener noreferrer me" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://github.com/Kaushall44" rel="noopener noreferrer me" className="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
             </div>
           </div>
         </footer>
