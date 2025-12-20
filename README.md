@@ -39,6 +39,8 @@ kaushalrajgupta/
 ├── lib/                   # Utility functions
 │   └── firebase.ts        # Firebase configuration
 ├── public/                # Static assets (images, resume, etc.)
+│   ├── resume.pdf
+│   └── ...
 ├── App.tsx                # Main Application Component & Routing Logic
 ├── index.html             # Entry HTML file
 ├── index.tsx              # React Entry point
