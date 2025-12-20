@@ -1,0 +1,44 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, doc, setDoc, getDoc } from "firebase/firestore";
+
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export const createShortLink = async (code: string, originalUrl: string) => {
+    const docRef = doc(db, "shortLinks", code);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        throw new Error("Short code already exists. Please choose another.");
+    }
+
+    await setDoc(docRef, {
+        originalUrl,
+        createdAt: new Date().toISOString(),
+        clicks: 0
+    });
+
+    return code;
+};
+
+export const getOriginalUrl = async (code: string) => {
+    const docRef = doc(db, "shortLinks", code);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        return docSnap.data().originalUrl as string;
+    } else {
+        return null;
+    }
+};

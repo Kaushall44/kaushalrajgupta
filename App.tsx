@@ -39,7 +39,9 @@ import {
 
 
 // --- Data & Constants ---
+// --- Data & Constants ---
 import { PROJECTS, SKILLS_ROW_1, SKILLS_ROW_2, BLOG_POSTS, EXPERIENCE } from './data/constants';
+import { createShortLink, getOriginalUrl } from './lib/firebase';
 
 
 
@@ -724,6 +726,133 @@ const personSchema = {
 
 // --- Page Components ---
 
+const UrlShortener = () => {
+  const [longUrl, setLongUrl] = useState("");
+  const [customCode, setCustomCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState("");
+  const [error, setError] = useState("");
+  const [generatedLink, setGeneratedLink] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setResult("");
+    setGeneratedLink("");
+
+    if (!longUrl) {
+      setError("Please enter a URL");
+      return;
+    }
+
+    // Basic URL validation
+    if (!longUrl.startsWith('http')) {
+      setError("URL must start with http:// or https://");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const code = customCode.trim() || Math.random().toString(36).substring(2, 8);
+      await createShortLink(code, longUrl);
+
+      const shortUrl = `${window.location.host}/s/${code}`;
+      setGeneratedLink(`${window.location.protocol}//${window.location.host}/s/${code}`);
+      setResult("Success! Your link is ready.");
+      setCustomCode(""); // Reset code
+    } catch (err: any) {
+      setError(err.message || "Something went wrong.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(generatedLink);
+    alert("Copied directly to clipboard!");
+  };
+
+  return (
+    <div className="max-w-xl mx-auto space-y-8 animate-fade-in-up">
+      <div className="text-center space-y-4">
+        <div className="inline-flex p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl mb-2">
+          <Link className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+        </div>
+        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">Custom URL Shortener</h2>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Create professional short links with your own domain.
+        </p>
+      </div>
+
+      <Card className="p-8 border-neutral-200 dark:border-neutral-800 shadow-xl dark:shadow-none bg-white dark:bg-[#111111]">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Original URL</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Globe className="h-5 w-5 text-neutral-400" />
+              </div>
+              <input
+                type="url"
+                value={longUrl}
+                onChange={(e) => setLongUrl(e.target.value)}
+                placeholder="https://example.com/very-long-url"
+                className="block w-full pl-10 pr-3 py-3 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-gray-50 dark:bg-neutral-900 text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+              Custom Code <span className="text-neutral-400 font-normal">(Optional)</span>
+            </label>
+            <div className="flex items-center gap-2">
+              <div className="px-3 py-3 bg-gray-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 rounded-xl text-neutral-500 text-sm select-none">
+                /s/
+              </div>
+              <input
+                type="text"
+                value={customCode}
+                onChange={(e) => setCustomCode(e.target.value)}
+                placeholder="my-link"
+                className="block w-full px-4 py-3 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-gray-50 dark:bg-neutral-900 text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              />
+            </div>
+          </div>
+
+          {error && (
+            <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-900/50 rounded-xl text-red-600 dark:text-red-400 text-sm flex items-center gap-2">
+              <X className="w-4 h-4" /> {error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full py-3 bg-neutral-900 dark:bg-white text-white dark:text-black font-semibold rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50"
+          >
+            {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>Create Short Link <Sparkles className="w-4 h-4" /></>}
+          </button>
+        </form>
+
+        {generatedLink && (
+          <div className="mt-8 p-4 bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-900/50 rounded-xl animate-fade-in-up">
+            <label className="text-xs font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider mb-2 block">Your Short Link</label>
+            <div className="flex items-center gap-2">
+              <code className="flex-1 text-sm bg-white dark:bg-black/50 p-2 rounded border border-green-200 dark:border-green-900/50 text-neutral-700 dark:text-neutral-300 break-all">
+                {generatedLink}
+              </code>
+              <button onClick={copyToClipboard} className="p-2 bg-green-100 dark:bg-green-800/50 text-green-700 dark:text-green-300 rounded-lg hover:bg-green-200 dark:hover:bg-green-800 transition-colors">
+                <Copy className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+      </Card>
+    </div>
+  );
+};
+
 export default function App() {
   const [timeGreeting, setTimeGreeting] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -735,9 +864,34 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Navigation State
-  const [currentView, setCurrentView] = useState<'home' | 'projects' | 'blog'>('home');
+  // Navigation State
+  const [currentView, setCurrentView] = useState<'home' | 'projects' | 'blog' | 'tools'>('home');
 
   const heroBgRef = useRef<HTMLDivElement>(null);
+
+  // REDIRECT LOGIC
+  useEffect(() => {
+    // Check for Short URL pattern: /s/[code]
+    const path = window.location.pathname;
+    const parts = path.split('/'); // ["", "s", "code"]
+
+    if (parts[1] === 's' && parts[2]) {
+      const code = parts[2];
+      console.log(`Checking short link: ${code}`);
+
+      getOriginalUrl(code).then(url => {
+        if (url) {
+          window.location.href = url;
+        } else {
+          console.error("Link not found");
+          setToastMessage("Link not found or expired.");
+          setShowToast(true);
+          // Redirect home to avoid stuck state
+          setTimeout(() => window.history.pushState({}, "", "/"), 2000);
+        }
+      });
+    }
+  }, []);
 
   useEffect(() => {
     // Initialize theme from localStorage on client side
@@ -806,7 +960,7 @@ export default function App() {
     }, 1500);
   };
 
-  const navigateTo = (view: 'home' | 'projects' | 'blog') => {
+  const navigateTo = (view: 'home' | 'projects' | 'blog' | 'tools') => {
     setCurrentView(view);
     setSearchQuery(""); // Reset search on navigation
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -899,6 +1053,8 @@ export default function App() {
             const el = document.getElementById('contact');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">Contact</button>
+
+          <button onClick={() => navigateTo('tools')} className={`text-sm transition-colors ${currentView === 'tools' ? 'text-neutral-900 dark:text-white font-semibold' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}`}>Tools</button>
 
           <div className="hidden sm:flex items-center gap-2 pl-4 border-l border-neutral-200 dark:border-neutral-800" role="status">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -1412,6 +1568,22 @@ export default function App() {
                 </div>
               )
             })()}
+          </div>
+        )}
+
+        {/* --- TOOLS PAGE --- */}
+        {currentView === 'tools' && (
+          <div className="animate-fade-in-up space-y-8 min-h-[60vh]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+              <button
+                onClick={() => navigateTo('home')}
+                className="flex items-center gap-2 text-sm text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4" /> Back to Home
+              </button>
+            </div>
+
+            <UrlShortener />
           </div>
         )}
 

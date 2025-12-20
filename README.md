@@ -40,6 +40,7 @@ kaushalrajgupta/
 ├── App.tsx                # Main Application Component
 ├── index.html             # Entry HTML file
 ├── index.tsx              # React Entry point
+├── lib/                 # Utility functions and helper classes
 ├── package.json           # Project dependencies and scripts
 ├── tailwind.config.js     # Tailwind CSS configuration
 ├── tsconfig.json          # TypeScript configuration
@@ -54,6 +55,7 @@ kaushalrajgupta/
 - **🤖 AI Integration**: Utilizes Google GenAI SDK for smart, interactive content and features.
 - **📱 Fully Responsive**: Customized mobile-first architecture ensuring perfect rendering on all devices.
 - **♿ Accessibility First**: Adheres to modern web accessibility standards (WCAG).
+- **🔗 URL Shortener**: Built-in URL shortener with custom metrics and analytics.
 - **📝 Project Showcase**: Interactive project gallery with detailed modals and live previews.
 
 ## 🛠️ Tech Stack
