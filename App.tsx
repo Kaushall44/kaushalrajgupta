@@ -712,6 +712,12 @@ export default function App() {
     if (path === '/tools') {
       setCurrentView('tools');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (path === '/projects') {
+      setCurrentView('projects');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (path === '/blog') {
+      setCurrentView('blog');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // Logic for Home / Hash routes
       if (hash === '#projects') {
@@ -1048,7 +1054,7 @@ export default function App() {
                   <Layers className="w-8 h-8 text-neutral-500" aria-hidden="true" /> Selected Work
                 </h2>
                 <button
-                  onClick={() => navigateTo('projects')}
+                  onClick={() => navigate('/projects')}
                   className="text-sm text-neutral-500 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1"
                   aria-label="View all projects"
                 >
@@ -1142,7 +1148,7 @@ export default function App() {
                   <Shield className="w-8 h-8 text-neutral-500" aria-hidden="true" /> Security Insights
                 </h2>
                 <button
-                  onClick={() => navigateTo('blog')}
+                  onClick={() => navigate('/blog')}
                   className="text-sm text-neutral-500 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1"
                   aria-label="Read all articles"
                 >
@@ -1266,7 +1272,7 @@ export default function App() {
           <div className="animate-fade-in-up space-y-8 min-h-[60vh]">
             <div className="flex items-center justify-between mb-8">
               <button
-                onClick={() => navigateTo('home')}
+                onClick={() => navigate('/', '')}
                 className="flex items-center gap-2 text-sm text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" /> Back to Home
@@ -1335,7 +1341,7 @@ export default function App() {
           <div className="animate-fade-in-up space-y-8 min-h-[60vh]">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
               <button
-                onClick={() => navigateTo('home')}
+                onClick={() => navigate('/', '')}
                 className="flex items-center gap-2 text-sm text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" /> Back to Home
@@ -1447,7 +1453,7 @@ export default function App() {
           <div className="animate-fade-in-up space-y-8 min-h-[60vh]">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
               <button
-                onClick={() => navigateTo('home')}
+                onClick={() => navigate('/', '')}
                 className="flex items-center gap-2 text-sm text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" /> Back to Home
