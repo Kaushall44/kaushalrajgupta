@@ -12,11 +12,11 @@
     <b>A high-performance, visually stunning portfolio built for the modern web.</b>
     <br />
     <br />
-    <a href="http://localhost:3000">View Demo</a>
+    <a href="https://kaushalrajgupta.vercel.app">View Demo</a>
     ·
-    <a href="https://github.com/kaushalrnc0/kaushal-portfolio/issues">Report Bug</a>
+    <a href="https://github.com/Kaushall44/kaushal-portfolio/issues">Report Bug</a>
     ·
-    <a href="https://github.com/kaushalrnc0/kaushal-portfolio/pulls">Request Feature</a>
+    <a href="https://github.com/Kaushall44/kaushal-portfolio/pulls">Request Feature</a>
   </p>
 </div>
 
@@ -28,13 +28,31 @@
 
 Integrated with **Google Gemini AI**, this portfolio offers dynamic, intelligent interactions, setting a new standard for developer portfolios.
 
+## 📂 Project Structure
+
+```bash
+kaushal-portfolio/
+├── data/                  # Application data (projects, skills, blog posts)
+│   └── constants.tsx     
+├── public/                # Static assets (images, resume, etc.)
+│   ├── resume.pdf
+│   └── ...
+├── App.tsx                # Main Application Component
+├── index.html             # Entry HTML file
+├── index.tsx              # React Entry point
+├── package.json           # Project dependencies and scripts
+├── tailwind.config.js     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+└── vite.config.ts         # Vite bundler configuration
+```
+
 ## ✨ Key Features
 
-- **🎨 Modern Data-Driven UI**: specific design system built with React and Tailwind CSS for a sleek, responsive interface.
+- **🎨 Modern Data-Driven UI**: Specific design system built with React and Tailwind CSS for a sleek, responsive interface.
 - **🌓 Dark/Light Mode**: Seamless theming with smooth transitions, respecting user preferences.
 - **⚡ Lightning Fast**: Powered by Vite for instant HMR and optimized production builds.
 - **🤖 AI Integration**: Utilizes Google GenAI SDK for smart, interactive content and features.
-- **📱 Fully Responsive**: customized mobile-first architecture ensuring perfect rendering on all devices.
+- **📱 Fully Responsive**: Customized mobile-first architecture ensuring perfect rendering on all devices.
 - **♿ Accessibility First**: Adheres to modern web accessibility standards (WCAG).
 - **📝 Project Showcase**: Interactive project gallery with detailed modals and live previews.
 
@@ -62,7 +80,7 @@ Follow these steps to set up the project locally.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/kaushalrnc0/kaushal-portfolio.git
+   git clone https://github.com/Kaushall44/kaushal-portfolio.git
    cd kaushal-portfolio
    ```
 
@@ -101,9 +119,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 **Kaushal Raj Gupta**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kaushal-raj-gupta)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kaushalrnc0)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kaushal@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kaushalrajgupta)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kaushall44)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kushh4@proton.me)
 
 ---
 
