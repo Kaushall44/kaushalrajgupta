@@ -56,6 +56,7 @@ kaushalrajgupta/
 - **📱 Fully Responsive**: Customized mobile-first architecture ensuring perfect rendering on all devices.
 - **♿ Accessibility First**: Adheres to modern web accessibility standards (WCAG).
 - **🔗 URL Shortener**: Built-in URL shortener with custom metrics and analytics.
+- **📱 QR Code Generation**: Instantly generate downloadable QR codes for any shortened link.
 - **📝 Project Showcase**: Interactive project gallery with detailed modals and live previews.
 
 ## 🛠️ Tech Stack
