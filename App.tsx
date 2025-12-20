@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import {
   Github,
@@ -700,10 +700,66 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Navigation State
-  // Navigation State
   const [currentView, setCurrentView] = useState<'home' | 'projects' | 'blog' | 'tools'>('home');
 
   const heroBgRef = useRef<HTMLDivElement>(null);
+
+  // HASH & PATH NAVIGATION LOGIC
+  const handleRoute = useCallback(() => {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+
+    if (path === '/tools') {
+      setCurrentView('tools');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Logic for Home / Hash routes
+      if (hash === '#projects') {
+        setCurrentView('projects');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#tools') {
+        setCurrentView('tools');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#articles') {
+        setCurrentView('blog');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setCurrentView('home');
+
+        // Scroll to section
+        setTimeout(() => {
+          const id = hash.replace('#', '');
+          if (id) {
+            const element = document.getElementById(id);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    // Initial check
+    handleRoute();
+
+    // Listeners
+    window.addEventListener('popstate', handleRoute);
+    window.addEventListener('hashchange', handleRoute);
+    return () => {
+      window.removeEventListener('popstate', handleRoute);
+      window.removeEventListener('hashchange', handleRoute);
+    };
+  }, [handleRoute]);
+
+  const navigate = (path: string, hash?: string) => {
+    const url = hash ? `${path}${hash}` : path;
+    window.history.pushState(null, '', url);
+    handleRoute();
+  };
 
   // REDIRECT LOGIC
   useEffect(() => {
@@ -796,6 +852,10 @@ export default function App() {
     }, 1500);
   };
 
+  const updateHash = (hash: string) => {
+    window.location.hash = hash;
+  };
+
   const navigateTo = (view: 'home' | 'projects' | 'blog' | 'tools') => {
     setCurrentView(view);
     setSearchQuery(""); // Reset search on navigation
@@ -860,37 +920,15 @@ export default function App() {
           aria-label="Main Navigation"
           className="bg-white/80 dark:bg-[#111111]/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800/80 rounded-full px-6 py-3 flex items-center gap-6 shadow-xl dark:shadow-2xl transition-colors duration-300"
         >
-          <button onClick={() => navigateTo('home')} className={`text-sm font-semibold transition-colors ${currentView === 'home' ? 'text-neutral-900 dark:text-white' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'}`}>Home</button>
+          <button onClick={() => navigate('/', '')} className={`text-sm font-semibold transition-colors ${currentView === 'home' && !window.location.hash.includes('work') && !window.location.hash.includes('about') && !window.location.hash.includes('contact') && !window.location.hash.includes('blog') ? 'text-neutral-900 dark:text-white' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'}`}>Home</button>
 
-          <button onClick={() => {
-            // If we are on home page, scroll to section, otherwise navigate to project page
-            if (currentView === 'home') {
-              const el = document.getElementById('work');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            } else {
-              navigateTo('projects');
-            }
-          }} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">Work</button>
+          <button onClick={() => navigate('/', '#work')} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">Work</button>
 
-          <button onClick={() => {
-            if (currentView === 'home') {
-              const el = document.getElementById('about');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            } else {
-              navigateTo('home');
-              setTimeout(() => {
-                const el = document.getElementById('about');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }, 100);
-            }
-          }} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">About</button>
+          <button onClick={() => navigate('/', '#about')} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">About</button>
 
-          <button onClick={() => {
-            const el = document.getElementById('contact');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">Contact</button>
+          <button onClick={() => navigate('/', '#contact')} className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">Contact</button>
 
-          <button onClick={() => navigateTo('tools')} className={`text-sm transition-colors ${currentView === 'tools' ? 'text-neutral-900 dark:text-white font-semibold' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}`}>Tools</button>
+          <button onClick={() => navigate('/tools')} className={`text-sm transition-colors ${currentView === 'tools' ? 'text-neutral-900 dark:text-white font-semibold' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}`}>Tools</button>
 
           <div className="hidden sm:flex items-center gap-2 pl-4 border-l border-neutral-200 dark:border-neutral-800" role="status">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -912,7 +950,7 @@ export default function App() {
         {currentView === 'home' && (
           <div className="space-y-20 animate-fade-in-up">
             {/* Hero Section */}
-            <section aria-label="Introduction" className="space-y-8 py-10 md:py-20">
+            <section id="home" aria-label="Introduction" className="space-y-8 py-10 md:py-20">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Badge>Available for hire</Badge>
@@ -931,10 +969,7 @@ export default function App() {
 
               <div className="flex flex-wrap items-center gap-4">
                 <button
-                  onClick={() => {
-                    const el = document.getElementById('contact');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => updateHash('contact')}
                   className="px-6 py-3 bg-neutral-900 dark:bg-white text-white dark:text-black font-medium rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors flex items-center gap-2 shadow-lg dark:shadow-none"
                   aria-label="Connect now"
                 >
@@ -1101,7 +1136,7 @@ export default function App() {
             </section>
 
             {/* Blog Section (Limited) */}
-            <section aria-label="From the Blog" className="space-y-8">
+            <section id="blog" aria-label="From the Blog" className="space-y-8 scroll-mt-32">
               <div className="flex items-center justify-between px-2">
                 <h2 className="text-3xl font-bold text-neutral-900 dark:text-white flex items-center gap-3">
                   <Shield className="w-8 h-8 text-neutral-500" aria-hidden="true" /> Security Insights
