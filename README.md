@@ -14,9 +14,9 @@
     <br />
     <a href="https://kaushalrajgupta.vercel.app">View Demo</a>
     ·
-    <a href="https://github.com/Kaushall44/kaushal-portfolio/issues">Report Bug</a>
+    <a href="https://github.com/Kaushall44/kaushalrajgupta/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Kaushall44/kaushal-portfolio/pulls">Request Feature</a>
+    <a href="https://github.com/Kaushall44/kaushalrajgupta/pulls">Request Feature</a>
   </p>
 </div>
 
@@ -31,7 +31,7 @@ Integrated with **Google Gemini AI**, this portfolio offers dynamic, intelligent
 ## 📂 Project Structure
 
 ```bash
-kaushal-portfolio/
+kaushalrajgupta/
 ├── data/                  # Application data (projects, skills, blog posts)
 │   └── constants.tsx     
 ├── public/                # Static assets (images, resume, etc.)
@@ -80,8 +80,8 @@ Follow these steps to set up the project locally.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Kaushall44/kaushal-portfolio.git
-   cd kaushal-portfolio
+   git clone https://github.com/Kaushall44/kaushalrajgupta.git
+   cd kaushalrajgupta
    ```
 
 2. **Install dependencies**
