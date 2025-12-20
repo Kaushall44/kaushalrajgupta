@@ -533,33 +533,51 @@ const ChatWidget = () => {
 
   const initChat = () => {
     if (!chatSessionRef.current) {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const context = `
-        You are an AI assistant for Kaushal Raj Gupta's portfolio website.
-        Your goal is to answer visitor questions professionally and concisely about Kaushal.
-        
-        Here is Kaushal's Resume Context:
-        
-        SUMMARY:
-        B.Tech student at ITER (SOA), Odisha. CGPA 8.9. Passionate about Web Development and Cyber Security.
-        
-        SKILLS:
-        ${SKILLS_ROW_1.join(', ')}, ${SKILLS_ROW_2.join(', ')}
-        
-        EXPERIENCE:
-        ${JSON.stringify(EXPERIENCE)}
-        
-        PROJECTS:
-        ${JSON.stringify(PROJECTS)}
-        
-        TONE:
-        Professional, enthusiastic, slightly technical but accessible. Keep responses under 3-4 sentences unless asked for detail.
-      `;
+      const apiKey = process.env.API_KEY || "";
+      if (!apiKey) {
+        console.error("API Key is missing!");
+        setMessages(prev => [...prev, {
+          role: 'model',
+          text: "I'm currently undergoing maintenance (API Key missing). Please contact Kaushal directly via email!"
+        }]);
+        return;
+      }
 
-      chatSessionRef.current = ai.chats.create({
-        model: 'gemini-2.5-flash',
-        config: { systemInstruction: context }
-      });
+      try {
+        const ai = new GoogleGenAI({ apiKey });
+        const context = `
+          You are an AI assistant for Kaushal Raj Gupta's portfolio website.
+          Your goal is to answer visitor questions professionally and concisely about Kaushal.
+          
+          Here is Kaushal's Resume Context:
+          
+          SUMMARY:
+          B.Tech student at ITER (SOA), Odisha. CGPA 8.9. Passionate about Web Development and Cyber Security.
+          
+          SKILLS:
+          ${SKILLS_ROW_1.join(', ')}, ${SKILLS_ROW_2.join(', ')}
+          
+          EXPERIENCE:
+          ${JSON.stringify(EXPERIENCE)}
+          
+          PROJECTS:
+          ${JSON.stringify(PROJECTS)}
+          
+          TONE:
+          Professional, enthusiastic, slightly technical but accessible. Keep responses under 3-4 sentences unless asked for detail.
+        `;
+
+        chatSessionRef.current = ai.chats.create({
+          model: 'gemini-2.5-flash',
+          config: { systemInstruction: context }
+        });
+      } catch (error) {
+        console.error("Failed to initialize chat:", error);
+        setMessages(prev => [...prev, {
+          role: 'model',
+          text: "I'm having trouble initializing. Please try again later."
+        }]);
+      }
     }
   };
 
@@ -615,9 +633,9 @@ const ChatWidget = () => {
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-24 right-6 z-50 w-[350px] sm:w-[380px] bg-white/95 dark:bg-[#111111]/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right flex flex-col overflow-hidden ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'
+        className={`fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[380px] bg-white/95 dark:bg-[#111111]/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl transition-all duration-300 origin-bottom-right flex flex-col overflow-hidden ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'
           }`}
-        style={{ maxHeight: 'calc(100vh - 120px)', height: '500px' }}
+        style={{ maxHeight: 'calc(100dvh - 120px)', height: '500px' }}
       >
         {/* Header */}
         <div className="p-4 border-b border-neutral-200 dark:border-neutral-800 bg-gray-50/50 dark:bg-neutral-900/50 flex items-center gap-3">
