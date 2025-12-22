@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://kaushalrajgupta.vercel.app/sitemap.xml
+Sitemap: https://kaushalrajgupta.is-a.dev/sitemap.xml

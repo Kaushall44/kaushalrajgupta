@@ -12,7 +12,7 @@
     <b>A high-performance, visually stunning portfolio built for the modern web.</b>
     <br />
     <br />
-    <a href="https://kaushalrajgupta.vercel.app">View Demo</a>
+    <a href="https://kaushalrajgupta.is-a.dev">View Demo</a>
     ·
     <a href="https://github.com/Kaushall44/kaushalrajgupta/issues">Report Bug</a>
     ·

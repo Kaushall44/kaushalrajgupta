@@ -1,0 +1,53 @@
+# Kaushal Portfolio
+
+> A high-performance, visually stunning portfolio built for the modern web.
+
+## Summary
+
+Kaushal Raj Gupta's website showcases his expertise as a full stack developer and cyber security enthusiast, focusing on the creation of secure, accessible, and modern web applications. The site emphasizes the importance of security in the development process, offering services that include web development and cyber security consulting. Targeting both businesses and individuals, the website serves as a platform to demonstrate his skills in technologies like React and Node.js, while addressing the growing demand for secure digital solutions in today's technology-driven landscape.
+
+## Author
+
+- **Name**: Kaushal Raj Gupta
+- **Role**: B.Tech Student, Full Stack Developer & Cyber Security Expert
+- **Location**: Bhubaneswar, Odisha, India
+- **University**: Institute of Technical Education and Research (SOA)
+- **Email**: kushh4@proton.me
+- **LinkedIn**: [kaushalrajgupta](https://linkedin.com/in/kaushalrajgupta)
+- **GitHub**: [Kaushall44](https://github.com/Kaushall44)
+
+## Architecture
+
+- **Frontend**: React 19, TypeScript, Tailwind CSS, Framer Motion
+- **Build Tool**: Vite
+- **Deployment**: Vercel
+- **AI Integration**: Google Gemini AI SDK
+
+## Key Sections
+
+- **[Home](https://kaushalrajgupta.is-a.dev/)**: Main landing page with hero section and introduction.
+- **[Projects](https://kaushalrajgupta.is-a.dev/projects)**: Showcase of technical projects with details on tech stack and live demos.
+- **[Tools](https://kaushalrajgupta.is-a.dev/tools)**: List of software and hardware tools used.
+- **[Blog](https://kaushalrajgupta.is-a.dev/blog)**: Technical articles and insights.
+- **[Contact](https://kaushalrajgupta.is-a.dev/#contact)**: Contact form and social links.
+
+## Projects
+
+Kaushal has worked on various projects including:
+- **Telegram Mess Menu Bot**: A bot for managing hostel mess menus.
+- **Portfolio Website**: This highly interactive website.
+- **Connect**: A full-stack app for real-time team collaboration with chat, file sharing, self attendence, and task management features.
+- **Kaushal ITER**: A backend service that generates tailored coding interview questions and solutions using AI.
+- **URL Shortener**: A URL shortener service that shortens long URLs to make them easier to share.
+- **Resume Builder**: A resume builder service that helps users create professional resumes.
+- **Job Finder**: A job finder service that helps users find jobs based on their skills and experience.
+- **Chatbot**: A chatbot service that helps users find jobs based on their skills and experience.
+- **VSCode theme Portfolio Website**: A personal portfolio website inspired by VSCode's design, showcasing projects and skills with a focus on responsiveness and user experience.
+
+## Skills
+
+- **Languages**: C++, Python, JavaScript, TypeScript
+- **Frontend**: React.js, Next.js, HTML5, CSS3, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Tools**: Git, GitHub, VS Code, Postman
+- **Security**: Cyber Security knowledge, Penetration Testing, Web Security, Web Hacking

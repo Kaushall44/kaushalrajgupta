@@ -675,7 +675,7 @@ const personSchema = {
   "@type": "Person",
   "name": "Kaushal Raj Gupta",
   "jobTitle": "Bachelor of Technology Student",
-  "url": "https://kaushalrajgupta.vercel.app",
+  "url": "https://kaushalrajgupta.is-a.dev",
   "sameAs": [
     "https://github.com/Kaushall44",
     "https://linkedin.com/in/kaushalrajgupta"
