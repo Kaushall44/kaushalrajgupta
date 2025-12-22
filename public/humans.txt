@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Kaushal Raj Gupta
+Site: kaushalrajgupta.is-a.dev
+Location: India
+Tech: Cybersecurity, React, Firebase, GitHub Pages
+
+/* THANKS */
+Thanks to the open source community.

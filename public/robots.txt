@@ -1,4 +1,11 @@
+# Allow all standard crawlers
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
+Disallow:
+
+# Explicitly Allow AI & Discovery Files
+Allow: /llms.txt
+Allow: /humans.txt
+Allow: /.well-known/security.txt
+
+# Discoverability (Sitemaps)
 Sitemap: https://kaushalrajgupta.is-a.dev/sitemap.xml
